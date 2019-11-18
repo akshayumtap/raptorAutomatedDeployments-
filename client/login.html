@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./login.css'>
+    <script src='login.js'></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            background-color: rgb(14, 202, 77);
+            height: 500px;
+            text-align: center;
+        }
+        .login-div{
+            text-align: center;
+        }
+
+        .form-field{
+            display: block;
+            margin: 10px;
+        }
+
+        a:link,
+        a:visited{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="login-div">
+                <h1>Login Page</h1>
+                <form class="form">
+                    <div class="form-field">
+                        <label>Username : </label>
+                        <input type="text" name="username"/>
+                    </div>
+                    <div class="form-field">
+                        <label>fullname : </label>
+                        <input type="text" name="name" />
+                    </div>
+                    <div class="form-field">
+                        <label>Password : </label>
+                        <input type="text" name="password" />
+                    </div>
+                    <div class="form-field"><a href="#" >Sign-up</a></div>
+                    
+                </form>
+            </div>
+            <diiv class="form-field">
+                <a href="http://localhost:3001/auth/google">Google</a>
+                <a href="http://localhost:3001/auth/facebook">Facebok</a>
+                <a href="http://localhost:3001/auth/github">Github</a>
+                <a href="http://localhost:3001/auth/spotify">spotify</a>
+                <a href="http://localhost:3001/auth/twitch">twitch</a>
+            </diiv>
+    </div>
+</body>
+</html>
