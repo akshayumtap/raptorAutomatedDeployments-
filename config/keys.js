@@ -38,7 +38,8 @@ module.exports = {
     amazon: {
         clientID: 'amzn1.devportal.webapp.35ddec4c2cba416288de96f3b37b164b',
         clientSecret: 'amzn1.devportal.apprelease.7e732cfcef9848eb84a32d8e9e063d99'
-    }
+    },
+    cookiekey: 'hghgdshgsguyg32764878766567yguygu'
 
 
 }

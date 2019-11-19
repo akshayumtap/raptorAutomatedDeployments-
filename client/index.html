@@ -5,10 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            text-align: -webkit-center;
+        }
+        .user-data{
+            background-color: aqua;
+            height: 300px;
+            width: 500px;
+            display: inline-block;
+        }
+
+        a:link,
+        a:visited{
+            text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 100px;
+        }
+        .btn-div{
+            position: sticky;
+            top: 35%;
+            display: inline-grid;
+        }
+        .btn{
+            background-image: linear-gradient(to left bottom, rgb(253, 126, 76), rgb(195, 250, 66));
+            padding: 10px;
+            margin: 20px;
+            box-shadow: 0px 5px 10px;
+        }
+        .btn:hover{
+            transform: translateY(-5px);
+        }
+        .btn:active{
+            transform: translateY(3px);
+        }
+        .btn-logout{
+            margin-top: 100px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Client Home Page</h1>
-    <div id="root"></div>
-    <script src="./Index.js"></script>
+    <div class="container">
+        <div class="user-data">
+        <h1>Login  Successful</h1>
+        <h2>User :<span id="username"></span></h2>
+        <div class="btn-div">
+        <a class="btn btn-login" href="/auth/login">Go to Login page</a>
+        <a class="btn btn-logout" id="logout" href="/auth/logout">Logout</a>
+        </div>
+        <div id="root"></div>
+    </div>
+    <script>
+        var btn=document.getElementById("#logout")
+        btn.onmouseover=()=>{
+            document.getElementById("#username").innerText ="gfdhghsfdjhs";
+            //alert("fagfhadh");
+        }
+        // let params = new URLSearchParams(location.search);
+        // console.log("Params=========="+params)
+        // document.getElementById("#username").innerText=params.get('username')
+        alert("msg "+params.get('username'))
+    </script>
 </body>
 </html>

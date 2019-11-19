@@ -9,11 +9,11 @@ const keys = require('./keys')
 const User = require('../models/user-model')
 
 
-let user = {};
+///let user = {};
 
 
 passport.serializeUser((user, cb) => {
-    cb(null, user);
+    cb(null, user.id);
 });
 
 passport.deserializeUser((user, cb) => {
@@ -28,24 +28,25 @@ passport.use(
         callbackURL: '/auth/google/redirect'
     },
         (accessToken, refreshToken, profile, cb) => {
+
             User.findOne({ userid: profile.id }).then((currentUser) => {
                 if (currentUser) {
                     console.log("------------User Alredy exist-----------\n" + currentUser)
-                    cb(null, user)
+                    cb(null, currentUser)
                 } else {
                     new User({
                         userid: profile.id,
                         username: profile.displayName,
-                        thumbnail: profile.photos.value
+                        thumbnail: profilparamparamparame.photos.value
                     }).save().then((currentUser) => {
                         console.log("-------------New User------------" + currentUser)
-                        cb(null, user)
+                        cb(null, currentUser)
                     })
                 }
             })
-            //console.log("ghgfsahgfhjgjadd"+chalk.blue(JSON.stringify(profile)));
+            //console.log("ghgfsahgfhjgjaddparam"+chalk.blue(JSON.stringify(profile)));
             //user = { ...profile };
-            return cb(null, profile);
+            //return cb(null, profile);
         })
 )
 
@@ -59,7 +60,7 @@ passport.use(new GithubStrategy({
         User.findOne({ userid: profile.id }).then((currentUser) => {
             if (currentUser) {
                 console.log("------------User Alredy exist-----------\n" + currentUser)
-                cb(null, user)
+                cb(null, currentUser)
             } else {
                 new User({
                     userid: profile.id,
@@ -67,7 +68,7 @@ passport.use(new GithubStrategy({
                     thumbnail: profile.photos.value
                 }).save().then((currentUser) => {
                     console.log("-------------New User------------" + currentUser)
-                    cb(null, user)
+                    cb(null, currentUser)
                 })
             }
         })

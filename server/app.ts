@@ -9,11 +9,19 @@ const passport = require('passport')
 const passportSetup = require('../config/passport-setup')
 const User = require('../models/user-model')
 const mongoose = require('mongoose')
+const cookies=require('cookie-session')
+const keys=require('../config/keys')
+
 config()
 const app = express()
 
+app.use(cookies({
+    maxAge:24*60*60*1000,
+    keys:[keys.cookiekey]
+}))
 
 app.use(passport.initialize())
+app.use(passport.session())
 
 //To enable render() to html
 app.set('views', join(__dirname, 'views'));

@@ -5,8 +5,6 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Login page</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='./login.css'>
-    <script src='login.js'></script>
     <style>
         *{
             margin: 0;
@@ -14,22 +12,81 @@
         }
 
         .container{
-            background-color: rgb(14, 202, 77);
+            background-color: #fff;
             height: 500px;
-            text-align: center;
+            text-align: -webkit-center;
+            height: 100%;
         }
         .login-div{
+            margin: 10%;
+            background-color: aqua;
+            padding: 30px;
+            height: fit-content;
+            width: fit-content;
+            box-shadow: 0px 5px 10px;
+        }
+
+        .login-div:hover{
+            transform: translateY(-10px);
+        }
+        .form{
+            display: inline-block;
+            padding: 10px 10px 10px 10px;
             text-align: center;
         }
-
         .form-field{
-            display: block;
             margin: 10px;
+            width: max-content;
         }
-
+        input{
+            height: 30px;
+            border-radius:0px 20px 0px 20px;
+        }
+        input:hover{
+            transform: translateY(-4px);
+            box-shadow: 0px 5px 10px;
+        }
+        input:focus{
+            border-style: 0px;
+        }
+        .sign-up{
+            display: flex;
+            left: 40%;
+            margin-left: 35%;
+        }
+        .a-sign-up{
+            background-image: linear-gradient(to left bottom,rgb(248, 137, 86), rgb(233, 111, 182));
+            color: rgb(87, 46, 4);
+            padding: 12px;
+            box-sizing: border-box;
+        }
+        .a-sign-up:hover{
+            transform: translateY(-4px);
+            box-shadow: 0px 5px 10px;
+        }
+        .a-sign-up:active{
+            transform: translateY(2px);
+        }
         a:link,
         a:visited{
             text-decoration: none;
+            text-transform: uppercase;
+            border-radius: 100px;
+        }
+        .a-login{
+            display: flex;
+        }
+        .a-field{
+            background-image: linear-gradient(to left bottom,rgb(82, 202, 52), rgb(47, 156, 219));
+            color: rgb(7, 11, 206);
+            padding: 12px;
+        }
+        .a-field:hover{
+            transform: translateY(-4px);
+            box-shadow: 0px 5px 10px;
+        }
+        .a-field:active{
+            transform: translateY(2px);
         }
     </style>
 </head>
@@ -40,28 +97,30 @@
                 <h1>Login Page</h1>
                 <form class="form">
                     <div class="form-field">
-                        <label>Username : </label>
+                        <label>User__id : </label>
                         <input type="text" name="username"/>
                     </div>
                     <div class="form-field">
-                        <label>fullname : </label>
+                        <label>Full Name : </label>
                         <input type="text" name="name" />
                     </div>
                     <div class="form-field">
                         <label>Password : </label>
                         <input type="text" name="password" />
                     </div>
-                    <div class="form-field"><a href="#" >Sign-up</a></div>
+                    <div class="form-field sign-up"><a class="a-sign-up" href="http://localhost:3001/auth/signup" >Sign-up</a></div>
                     
                 </form>
-            </div>
-            <diiv class="form-field">
-                <a href="http://localhost:3001/auth/google">Google</a>
-                <a href="http://localhost:3001/auth/facebook">Facebok</a>
-                <a href="http://localhost:3001/auth/github">Github</a>
-                <a href="http://localhost:3001/auth/spotify">spotify</a>
-                <a href="http://localhost:3001/auth/twitch">twitch</a>
-            </diiv>
+                <div class="a-group">
+                    <diiv class="form-field a-login">
+                        <a class="google a-field" href="http://localhost:3001/auth/google">Google</a>
+                        <a class="facebook a-field" href="http://localhost:3001/auth/facebook">Facebok</a>
+                        <a class="github a-field" href="http://localhost:3001/auth/github">Github</a>
+                        <a class="spotify a-field" href="http://localhost:3001/auth/spotify">spotify</a>
+                        <a class="twitch a-field" href="http://localhost:3001/auth/twitch">twitch</a>
+                    </diiv>
+                </div>
+        </div>
     </div>
 </body>
 </html>

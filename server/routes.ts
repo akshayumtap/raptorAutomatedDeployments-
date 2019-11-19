@@ -3,12 +3,24 @@ import {join} from 'path';
 const passport=require('passport');
 const appRouter: Router = Router()
 const passdata=require('../config/passport-setup');
+const User = require('../models/user-model')
+const cookies=require('cookie-session');
+
 
 appRouter.get('/', (req: Request, res: Response, next) => {
   res.render(join(__dirname,"../client/login"))
 })
 
-const User = require('../models/user-model')
+appRouter.get('/auth/login', (req: Request, res: Response, next) => {
+  res.render(join(__dirname, "../client/login"))
+})
+appRouter.get('/auth/logout', (req: Request, res: Response, next) => {
+  res.render(join(__dirname, "../client/login"))
+})
+
+appRouter.get('/auth/signup', (req: Request, res: Response, next) => {
+  res.render(join(__dirname, "../client/index"))
+})
 
 //Google routes
 appRouter.get("/auth/google", passport.authenticate("google", {
@@ -16,11 +28,14 @@ appRouter.get("/auth/google", passport.authenticate("google", {
 }));
 appRouter.get("/auth/google/redirect",
   passport.authenticate("google"),
-  (req, res) => {
-    res.redirect("/google_home?data="+JSON.stringify(req.param));
+  (req:any, res) => {
+    console.log('User Data====== ',req.user)
+    res.redirect("/google_home?username="+req.user.username
+                              +"&name="+req.user.name
+                              +"&thumbnail="+req.user.thumbnail);
   });
 appRouter.get('/google_home', (req, res) => {
-  console.log("gggggggggggg")
+  //console.log("gggggggggggg")
   res.render(join(__dirname, "../client/index"));
 
 })
